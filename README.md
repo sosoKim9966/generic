@@ -12,6 +12,8 @@ LinkedList<Character> list4 = new LikedList<Character>();
 ```
 <> 괄호 안에 들어가는 타입을 지정해준다.
 
+---
+
 ### 제네릭은 **클래스 내부에서 지정하는 것이 아닌 외부에서 사용자에 의해 지정되는 것.**
 
 특정타입을 미리 지정해주는 것이 아닌 필요에 의해 지정할 수 있도록 하는 일반(Generic) 타입이라는 것.
@@ -20,7 +22,7 @@ LinkedList<Character> list4 = new LikedList<Character>();
 
 ---
 
-제네릭의 장점
+##제네릭의 장점
 
 1. 제네릭을 사용하면 잘못된 타입이 들어올 수 있는 것을 컴파일 단계에서 방지할 수 있다.
 2. 클래스 외부에서 타입을 지정해주기 때문에 따로 타입을 체크하고 변환해줄 필요가 없음. = 관리하기 편함
@@ -28,12 +30,100 @@ LinkedList<Character> list4 = new LikedList<Character>();
 
 ---
 
-제네릭 사용법
+##제네릭 사용법
 
-|타입|설명|
-|:------:|:------------:|
-|<T>|Type|
-|<E>|Element|
-|<K>|Key|
-|<V>|Value|
-|<N>|Number|
+타입|설명
+:------:|:------------:
+ \< T \> |Type
+ \< E \> |Element
+ \< K \> |Key
+ \< V \> |Value
+ \< N \> |Number
+
+---
+
+###1. 클래스, 인터페이스 선언
+
+```
+
+public class ClassName <T> { ... }
+public Interface InterfaceName <T> { ... }
+
+```
+
+T 타입은 해당 블럭 { ...  } 안에서까지 유효
+
+&nbsp;
+
+제네릭 타입을 두 개로 둘 수 있음. (대표적으로 타입 인자로 두 개 받는 HashMap)
+
+```
+
+public class ClassName<T, K> { .. }
+public Interface InterfaceName <T, K> { ... }
+
+//HashMap 의 경우 아래와 같이 선언되었을 것
+public Class HashMap<K, V> { ... }
+
+```
+
+이렇듯 데이터 타입을 외부로부터 지정할 수 있도록 할 수 있음.
+
+```
+
+public class ClassName<T, K> { ... }
+
+public Class Main {
+    public static void main(String[] args) {
+        className<String, Integer> a = new ClassName<String, Integer>();
+    }
+}
+
+```
+
+위의 예시대로라면 T = String, K = Integer
+
+주의해야 할 점은 타입 파라미터로 명시 할 수 있는 것은 참조 타입(Reference Type)밖에 올 수 없다. 즉, int, double, char 같은 primitive type은 올 수 없다.
+그래서 int형 double형 등 primitive Type의 경우 Integer, Double 같은 Wrapper Type으로 쓰는 이유가 바로 위와 같은 이유.
+
+또한 바꿔 말하면 참조 타입이 올 수 있다는 것은 사용자가 정의한 클래스도 타입으로 올 수 있다는 뜻.
+
+```
+
+public class ClassName<T> { ... }
+
+public class Student { ... }
+ 
+public class Main {
+    public static void main(String[] args) {
+        ClassName<Student> a = new ClassName<Student>();
+    }
+}
+
+```
+
+---
+
+###2. 제네릭 클래스
+
+> **Main 클래스 참조**
+
+---
+
+###3. 제네릭 메소드
+
+선언 방법
+
+```
+
+public <T> T genericMethod(T o) {
+    ...
+}
+
+[접근제어자] <제네릭 타입> [반환타입] [메소드명]([제네릭타입] [파라미터]) {
+    // 텍스트
+}
+
+```
+
+**정적 메소드로 선언 할 때 필요**
