@@ -31,7 +31,7 @@ LinkedList<Character> list4 = new LikedList<Character>();
 제네릭 사용법
 
 |타입|설명|
-|---|:------:|
+|:------:|:------------:|
 |<T>|Type|
 |<E>|Element|
 |<K>|Key|
