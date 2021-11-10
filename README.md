@@ -10,6 +10,8 @@ LinkedList<Double> list3 = new LinkedList<Double>();
 LinkedList<Character> list4 = new LikedList<Character>();
 
 ```
+
+
 <> 괄호 안에 들어가는 타입을 지정해준다.
 
 ---
@@ -43,6 +45,8 @@ LinkedList<Character> list4 = new LikedList<Character>();
 ---
 
 ###1. 클래스, 인터페이스 선언
+
+&nbsp;
 
 ```
 
@@ -80,6 +84,9 @@ public Class Main {
 }
 
 ```
+&nbsp;
+
+&nbsp;
 
 위의 예시대로라면 T = String, K = Integer
 
@@ -87,6 +94,8 @@ public Class Main {
 그래서 int형 double형 등 primitive Type의 경우 Integer, Double 같은 Wrapper Type으로 쓰는 이유가 바로 위와 같은 이유.
 
 또한 바꿔 말하면 참조 타입이 올 수 있다는 것은 사용자가 정의한 클래스도 타입으로 올 수 있다는 뜻.
+
+&nbsp;
 
 ```
 
@@ -102,17 +111,29 @@ public class Main {
 
 ```
 
+&nbsp;
+
+&nbsp;
+
 ---
 
 ###2. 제네릭 클래스
 
 > **Main 클래스 참조**
 
+&nbsp;
+
 ---
+
+&nbsp;
+
+&nbsp;
 
 ###3. 제네릭 메소드
 
 선언 방법
+
+&nbsp;
 
 ```
 
@@ -127,3 +148,50 @@ public <T> T genericMethod(T o) {
 ```
 
 **정적 메소드로 선언 할 때 필요**
+
+&nbsp;
+
+&nbsp;
+
+---
+
+&nbsp;
+
+###제한된 Genric(제네릭)과 와일드 카드
+
+&nbsp;
+
+제네릭은 참조 타입 모두 될 수 있음.
+
+만약 특정 범위 내로 좁혀서 제한하고 싶다면 extends, spuer, ?(와일드 카드 - 알수 없는 타입)를 사용
+
+&nbsp;
+
+```
+
+<K extends T>  // T와 T의 자손 타입만 가능 (K는 들어오는 타입으로 지정 됨)
+<K super T>    // T와 T의 부모(조상) 타입만 가능(K는 들어오는 타입으로 지정 됨)
+
+<? extends T>  // T와 T의 자손 타입만 가능
+<? extends T>  // T와 T의 부모(조상) 타입만 가능
+<?>            // 모든 타입 가능. < ? extends Object>와 같은 의미
+
+------------------------------------------------------------------------
+
+/*
+Number와 이를 상속하는 Integer, Short, Double, Long 등의
+타입이 지정될 수 있으며, 객체 혹은 메소드를 호출할 경우
+K는 지정된 타입으로 변환이 된다.
+*/
+<K extends N>
+
+Number와 이를 상속하는 Integer, Short, Double, Long 등의
+타입이 지정될 수 있으며, 객체 혹은 메소드를 호출 할 경우 지정 되는 타입이 없어
+타입 참조를 할 수는 없다.
+<? extends T>  // T와 T의 자손 타입만 가능
+
+=> 특정 타입의 데이터를 조작하고자 할 경우에는 K 같이 특정 제네릭 인수로 지정 해주어야 함.
+
+```
+
+
