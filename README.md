@@ -3,6 +3,7 @@
 >데이터 형식에 의존하지 않고, 하나의 값이 여러 다른 데이터 타입들을 가질 수 있도록 하는 방법
 
 ```
+
 ArrayList<Integer> list1 = new ArrayList<Integer>();
 ArrayList<String> list2 = new ArrayList<String>();
 
@@ -14,7 +15,8 @@ LinkedList<Character> list4 = new LikedList<Character>();
 
 <> 괄호 안에 들어가는 타입을 지정해준다.
 
----
+&nbsp;
+
 
 ### 제네릭은 **클래스 내부에서 지정하는 것이 아닌 외부에서 사용자에 의해 지정되는 것.**
 
@@ -22,7 +24,8 @@ LinkedList<Character> list4 = new LikedList<Character>();
 
 - _사실, 지정된다는 것 보다는 타입의 경계를 지정하고, **컴파일 때** 해당 타입으로 캐스팅하여 매개변수화 된 유형을 삭제하는 것._
 
----
+&nbsp;
+
 
 ##제네릭의 장점
 
@@ -180,27 +183,34 @@ public <T> T genericMethod(T o) {
 
 &nbsp;
 
+extends T : 상한 경계
+
+? super T : 하한 경계
+
+&nbsp;
+
 ```
 
-/*
-Number와 이를 상속하는 Integer, Short, Double, Long 등의
-타입이 지정될 수 있으며, 객체 혹은 메소드를 호출할 경우
-K는 지정된 타입으로 변환이 된다.
-*/
+
+// Number와 이를 상속하는 Integer, Short, Double, Long 등의
+// 타입이 지정될 수 있으며, 객체 혹은 메소드를 호출할 경우
+// K는 지정된 타입으로 변환이 된다.
 <K extends N>
 
-Number와 이를 상속하는 Integer, Short, Double, Long 등의
-타입이 지정될 수 있으며, 객체 혹은 메소드를 호출 할 경우 지정 되는 타입이 없어
-타입 참조를 할 수는 없다.
+// Number와 이를 상속하는 Integer, Short, Double, Long 등의
+// 타입이 지정될 수 있으며, 객체 혹은 메소드를 호출 할 경우 지정 되는 타입이 없어
+// 타입 참조를 할 수는 없다.
 <? extends T>  // T와 T의 자손 타입만 가능
 
 ```
 
-=> **특정 타입의 데이터를 조작하고자 할 경우에는 K 같이 특정 제네릭 인수로 지정 해주어야 함.**
+**=> 특정 타입의 데이터를 조작하고자 할 경우에는 K 같이 특정 제네릭 인수로 지정 해주어야 함.**
 
 &nbsp;
 
 ![제네릭상속](./img/generic_extends.png)
+
+다음과 같은 상속관계를 가지고 있다고 가정.
 
 ```
 

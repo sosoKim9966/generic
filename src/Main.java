@@ -74,6 +74,7 @@ class ClassName<E> {
 }
 */
 
+/*
 //스테틱 제네릭 메서드 사용 예시
 class ClassName<E> {
 
@@ -96,8 +97,12 @@ class ClassName<E> {
         return o;
     }
 }
+*/
 
+//특정 타입 및 그 하위 타입만 제한하고 싶은 경우
+class ClassName <K extends Number> {
 
+}
 
 
 
@@ -216,6 +221,12 @@ public class Main {
              <>괄호 안에 타입을 파라미터로 보내 제네릭 타입을 지정해주는 것.
 */
 
+/*
+        //특정 타입 및 그 하위 타입만 제한하고 싶은 경우
+        ClassName<Double> a1 = new ClassName<>();       => ok
+
+        ClassName<String> a2 = new ClassName<String>(); => Bound Mismatch
+*/
 
 
     }
