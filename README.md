@@ -176,7 +176,11 @@ public <T> T genericMethod(T o) {
 <? extends T>  // T와 T의 부모(조상) 타입만 가능
 <?>            // 모든 타입 가능. < ? extends Object>와 같은 의미
 
-------------------------------------------------------------------------
+```
+
+&nbsp;
+
+```
 
 /*
 Number와 이를 상속하는 Integer, Short, Double, Long 등의
@@ -190,7 +194,23 @@ Number와 이를 상속하는 Integer, Short, Double, Long 등의
 타입 참조를 할 수는 없다.
 <? extends T>  // T와 T의 자손 타입만 가능
 
-=> 특정 타입의 데이터를 조작하고자 할 경우에는 K 같이 특정 제네릭 인수로 지정 해주어야 함.
+```
+
+=> **특정 타입의 데이터를 조작하고자 할 경우에는 K 같이 특정 제네릭 인수로 지정 해주어야 함.**
+
+&nbsp;
+
+![제네릭상속](./img/generic_extends.png)
+
+```
+
+<T extends B>   // B와 C타입만 올 수 있음 
+<T extends E>   // E 타입만 올 수 있음
+<T extends A>   // A, B, C, D, E 타입이 올 수 있음
+
+<? extends B>   // B와 C타입만 올 수 있음
+<? extends E>   // E 타입만 올 수 있음
+<? extends A>   // A, B, C, D, E 타입이 올 수 있음
 
 ```
 

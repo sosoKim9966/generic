@@ -15,9 +15,6 @@ class ClassName<E> {
 }
 */
 
-
-
-
 /*
 제네릭을 두개 사용한 클래스
 class ClassName<K, V> {
@@ -36,8 +33,6 @@ class ClassName<K, V> {
     V getSecond() {
         return  second;
     }
-
-
 }
 */
 
@@ -58,30 +53,24 @@ class ClassName<E> {
     <T> T genericMethod(T o) {  //제네릭 메소드
         return o;
     }
-
 }
 */
 
 /*
-
 //static 제네릭 메서드 오류 예시
 class ClassName<E> {
 
-*/
 /*
     클래스와 같은 E 타입이더라도
     static 메소드는 객체가 생성되기 이전 시점에
     메모리에 먼저 올라가기 때문에
     E 유형을 클래스로부터 얻어올 방법이 없다.
-*//*
-
-
 */
+
 /*
     static E genericMethod(E o) {  => Error
         return o;
     }
-*//*
 }
 */
 
@@ -106,8 +95,6 @@ class ClassName<E> {
     static <T> T genericMethod2(T o) { //제네릭 메소드
         return o;
     }
-
-
 }
 
 
@@ -227,8 +214,6 @@ public class Main {
 
         ==>  제네릭 메소드는 제네릭 클래스 타입과 별도로 지정됨.
              <>괄호 안에 타입을 파라미터로 보내 제네릭 타입을 지정해주는 것.
-
-
 */
 
 
